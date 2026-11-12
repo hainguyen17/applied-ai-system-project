@@ -1,0 +1,172 @@
+{
+  "request": "metal but very calm and quiet",
+  "status": "ok",
+  "llm": "rule-based (offline)",
+  "confidence": 0.8,
+  "trace": [
+    {
+      "step": "guard",
+      "ms": 0.0,
+      "ok": true,
+      "status": "ok"
+    },
+    {
+      "step": "retrieve",
+      "ms": 5.0,
+      "enabled": true,
+      "hits": [
+        {
+          "cite": "knowledge/genres.md#metal",
+          "score": 1.3722,
+          "matched": [
+            "metal"
+          ]
+        },
+        {
+          "cite": "knowledge/moods.md#peaceful",
+          "score": 1.3526,
+          "matched": [
+            "calm",
+            "quiet"
+          ]
+        },
+        {
+          "cite": "knowledge/activities.md#meditation",
+          "score": 0.1295,
+          "matched": []
+        },
+        {
+          "cite": "knowledge/genres.md#ambient",
+          "score": 0.1068,
+          "matched": []
+        }
+      ]
+    },
+    {
+      "step": "parse",
+      "ms": 1.6,
+      "parser": "rule-based (offline)",
+      "raw": {
+        "sources": [
+          "knowledge/genres.md#metal",
+          "knowledge/moods.md#peaceful"
+        ],
+        "favorite_genre": "metal",
+        "favorite_mood": "peaceful",
+        "target_energy": 0.3,
+        "confidence": 1.0
+      }
+    },
+    {
+      "step": "ground",
+      "ms": 0.0,
+      "profile": {
+        "favorite_genre": "metal",
+        "favorite_mood": "peaceful",
+        "target_energy": 0.3,
+        "related_genres": {
+          "rock": 0.5
+        },
+        "related_moods": {
+          "chill": 0.5,
+          "relaxed": 0.6
+        },
+        "likes_acoustic": true
+      },
+      "constraints": {
+        "citations": {
+          "favorite_genre": "knowledge/genres.md#metal",
+          "favorite_mood": "knowledge/moods.md#peaceful"
+        }
+      },
+      "warnings": []
+    },
+    {
+      "step": "score",
+      "ms": 0.2,
+      "top": [
+        [
+          "Pine Hollow",
+          2.96
+        ],
+        [
+          "Morning Pages",
+          2.91
+        ],
+        [
+          "Ashen Field",
+          2.83
+        ],
+        [
+          "Porch Light",
+          2.8
+        ],
+        [
+          "Low Tide Static",
+          2.8
+        ],
+        [
+          "Nocturne in Grey",
+          2.76
+        ],
+        [
+          "Furnace Hymn",
+          2.55
+        ],
+        [
+          "Iron Requiem",
+          2.52
+        ]
+      ]
+    },
+    {
+      "step": "draft",
+      "ms": 0.0,
+      "slots": 5,
+      "arc": "flat",
+      "songs": [
+        "Low Tide Static",
+        "Morning Pages",
+        "Pine Hollow",
+        "Porch Light",
+        "Ashen Field"
+      ]
+    },
+    {
+      "step": "verify",
+      "ms": 0.0,
+      "round": 0,
+      "failed": [
+        "honors_genre"
+      ],
+      "checks": {
+        "grounded_in_catalog": "every song exists in data/",
+        "no_duplicates": "0 repeated",
+        "respects_feedback": "0 disliked songs",
+        "tempo_transitions": "max jump 30 bpm; 0 too big",
+        "artist_spacing": "0 back-to-back artists",
+        "arc_fit": "mean energy error 0.14 (limit 0.15)",
+        "honors_genre": "1/5 songs are metal"
+      }
+    },
+    {
+      "step": "repair",
+      "ms": 0.0,
+      "round": 1,
+      "swaps": []
+    },
+    {
+      "step": "confidence",
+      "ms": 0.0,
+      "pass_rate": 0.86,
+      "match": 0.57,
+      "parse": 1.0,
+      "confidence": 0.8
+    },
+    {
+      "step": "explain",
+      "ms": 0.9,
+      "intro_ok": true
+    }
+  ]
+}

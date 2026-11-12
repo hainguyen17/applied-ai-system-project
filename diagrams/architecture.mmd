@@ -1,0 +1,49 @@
+flowchart TD
+    classDef human fill:#fef3c7,stroke:#d97706,color:#78350f
+    classDef ai fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    classDef guard fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
+    classDef data fill:#dcfce7,stroke:#16a34a,color:#14532d
+    classDef test fill:#ede9fe,stroke:#7c3aed,color:#4c1d95
+
+    U([Listener request<br/>'rainy study, no lyrics, 40 min']):::human
+
+    subgraph S1 [1. Understand the request]
+        G1[Input guardrail<br/>empty, too long, injection, off-topic]:::guard
+        R[Retriever<br/>TF-IDF + synonym match]:::ai
+        P[Parser<br/>Claude, offline fallback]:::ai
+        GR[Ground + validate<br/>'sad' to melancholy, clamp, drop unknowns]:::guard
+    end
+
+    subgraph S2 [2. Agent loop: plan, check, fix]
+        S[Scorer<br/>Module 3 score_song]:::ai
+        D[Draft<br/>top songs on an energy arc]:::ai
+        V[Verifier<br/>8 playlist checks]:::guard
+        RP[Repair<br/>swap failing songs, max 3 rounds]:::ai
+    end
+
+    subgraph S3 [3. Explain and hand back]
+        C[Confidence score]:::ai
+        E[Explain<br/>reasons, citations, checked intro]:::ai
+    end
+
+    KB[(knowledge/<br/>moods, genres, activities)]:::data
+    CAT[(60-song catalog<br/>data/*.csv)]:::data
+    LOG[(logs/ traces)]:::data
+
+    STOP([Refusal or<br/>clarifying question]):::human
+    OUT([Playlist + confidence<br/>+ checks + trace]):::human
+    FB([Listener 👍 / 👎<br/>human in the loop]):::human
+    T[[pytest 86 tests<br/>eval.py RAG on vs off<br/>bias_audit.py]]:::test
+
+    U --> G1 --> R --> P --> GR --> S
+    KB --> R
+    KB --> GR
+    G1 -- refused --> STOP
+    GR -- nothing usable --> STOP
+    CAT --> S --> D --> V
+    V -- check failed --> RP --> V
+    V -- all pass --> C --> E --> OUT
+    E --> LOG
+    OUT --> FB
+    FB -. new weights, excluded songs .-> S
+    T -. tests .-> S2

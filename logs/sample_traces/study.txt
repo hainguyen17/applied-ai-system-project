@@ -1,0 +1,39 @@
+Status: ok   LLM: rule-based (offline)
+
+A 11-song, 40-minute building playlist for "rainy sunday study session, nothing with lyrics, about 40 minutes, start calm and build up a little". It opens with Nocturne in Grey by Elise Varga and closes with Coffee Shop Stories by Slow Stereo.
+
+ 1. Nocturne in Grey - Elise Varga  [classical/peaceful]  energy 0.15  60 bpm  (opening)  score 3.01
+      why: mood match (+1.0); energy 0.15 vs target 0.30 (+1.27); acousticness fit (+0.48); instrumental preference match (+0.25); opening slot, target energy 0.25
+      sources: knowledge/moods.md#peaceful
+ 2. Low Tide Static - Orbit Bloom  [ambient/peaceful]  energy 0.18  58 bpm  (opening)  score 3.05
+      why: mood match (+1.0); energy 0.18 vs target 0.30 (+1.32); acousticness fit (+0.47); instrumental preference match (+0.25); opening slot, target energy 0.27
+      sources: knowledge/moods.md#peaceful
+ 3. Morning Pages - Kettle & Moss  [lofi/peaceful]  energy 0.28  68 bpm  (opening)  score 3.41
+      why: mood match (+1.0); energy 0.28 vs target 0.30 (+1.47); acousticness fit (+0.44); mood tags cozy+focused (+0.25); instrumental preference match (+0.25); opening slot, target energy 0.29
+      sources: knowledge/moods.md#peaceful
+ 4. Spacewalk Thoughts - Orbit Bloom  [ambient/chill]  energy 0.28  60 bpm  (opening)  score 2.68
+      why: related mood chill (+0.50); energy 0.28 vs target 0.30 (+1.47); acousticness fit (+0.46); instrumental preference match (+0.25); opening slot, target energy 0.31
+      sources: knowledge/moods.md#peaceful
+ 5. Midnight Coding - LoRoom  [lofi/chill]  energy 0.42  78 bpm  (build)  score 2.55
+      why: related mood chill (+0.50); energy 0.42 vs target 0.30 (+1.32); acousticness fit (+0.35); mood tags cozy (+0.12); instrumental preference match (+0.25); build slot, target energy 0.33
+      sources: knowledge/moods.md#peaceful
+ 6. Quiet Hours - Kettle & Moss  [lofi/chill]  energy 0.30  70 bpm  (build)  score 2.79
+      why: related mood chill (+0.50); energy 0.30 vs target 0.30 (+1.50); acousticness fit (+0.42); mood tags rainy (+0.12); instrumental preference match (+0.25); build slot, target energy 0.35
+      sources: knowledge/moods.md#peaceful
+ 7. Brushed Snare - Slow Stereo  [jazz/chill]  energy 0.32  88 bpm  (build)  score 2.66
+      why: related mood chill (+0.50); energy 0.32 vs target 0.30 (+1.47); acousticness fit (+0.44); instrumental preference match (+0.25); build slot, target energy 0.37
+      sources: knowledge/moods.md#peaceful
+ 8. Tape Hiss Sunday - LoRoom  [lofi/relaxed]  energy 0.33  74 bpm  (build)  score 2.96
+      why: related mood relaxed (+0.60); energy 0.33 vs target 0.30 (+1.46); acousticness fit (+0.40); mood tags cozy+rainy (+0.25); instrumental preference match (+0.25); build slot, target energy 0.39
+      sources: knowledge/moods.md#peaceful
+ 9. Library Rain - Paper Lanterns  [lofi/chill]  energy 0.35  72 bpm  (top)  score 2.85
+      why: related mood chill (+0.50); energy 0.35 vs target 0.30 (+1.42); acousticness fit (+0.43); mood tags cozy+rainy (+0.25); instrumental preference match (+0.25); top slot, target energy 0.41
+      sources: knowledge/moods.md#peaceful
+10. Focus Flow - LoRoom  [lofi/focused]  energy 0.40  80 bpm  (top)  score 2.24
+      why: energy 0.40 vs target 0.30 (+1.35); acousticness fit (+0.39); mood tags focused+steady (+0.25); instrumental preference match (+0.25); top slot, target energy 0.43
+11. Coffee Shop Stories - Slow Stereo  [jazz/relaxed]  energy 0.37  90 bpm  (top)  score 2.81
+      why: related mood relaxed (+0.60); energy 0.37 vs target 0.30 (+1.40); acousticness fit (+0.45); mood tags cozy (+0.12); instrumental preference match (+0.25); top slot, target energy 0.45
+      sources: knowledge/moods.md#peaceful
+
+Total: 39.9 min   Confidence: 0.93   Repair rounds: 1
+Checks: grounded_in_catalog=pass, no_duplicates=pass, respects_feedback=pass, instrumental=pass, tempo_transitions=pass, artist_spacing=pass, arc_fit=pass, duration=pass

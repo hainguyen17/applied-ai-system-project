@@ -1,0 +1,43 @@
+id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness,popularity,release_decade,mood_tags,language,is_instrumental,duration_sec
+19,Paper Planes Over Ohio,Indigo Parade,indie pop,uplifting,0.68,116,0.78,0.74,0.42,61,2020,bright|warm,en,0,212
+20,Glass Elevator,Neon Echo,pop,happy,0.74,120,0.82,0.80,0.20,79,2020,upbeat|bright,en,0,198
+21,Second Wind,Max Pulse,pop,confident,0.86,126,0.72,0.84,0.08,83,2020,motivating|driving,en,0,204
+22,Tape Hiss Sunday,LoRoom,lofi,relaxed,0.33,74,0.58,0.55,0.80,55,2020,cozy|rainy,none,1,168
+23,Window Seat,Paper Lanterns,lofi,focused,0.38,82,0.55,0.60,0.75,57,2020,focused|steady,none,1,176
+24,Quiet Hours,Kettle & Moss,lofi,chill,0.30,70,0.52,0.50,0.84,49,2020,nocturnal|rainy,none,1,184
+25,Low Tide Static,Orbit Bloom,ambient,peaceful,0.18,58,0.55,0.30,0.95,38,2020,dreamy|spacey,none,1,260
+26,Northern Hum,Glacier Tapes,ambient,melancholy,0.20,62,0.30,0.28,0.90,33,2010,somber|spacey,none,1,280
+27,Brushed Snare,Slow Stereo,jazz,chill,0.32,88,0.66,0.50,0.88,47,2000,warm|nocturnal,none,1,236
+28,Blue Lantern,Mara Quell Trio,jazz,melancholy,0.29,76,0.34,0.42,0.86,44,1990,somber|nocturnal,none,1,251
+29,Bebop Errand,Mara Quell Trio,jazz,happy,0.61,168,0.79,0.62,0.83,41,2000,bright|playful,none,1,190
+30,Overpass Fever,Voltline,rock,intense,0.88,148,0.52,0.60,0.12,67,2010,driving|aggressive,en,0,222
+31,Rust and Gold,The Wexfords,rock,nostalgic,0.64,112,0.58,0.55,0.38,59,2000,nostalgic|warm,en,0,245
+32,Headlights,The Wexfords,rock,uplifting,0.72,130,0.70,0.58,0.25,63,2010,driving|bright,en,0,214
+33,Chrome Horizon,Neon Echo,synthwave,euphoric,0.80,118,0.71,0.76,0.10,64,2020,nocturnal|driving,none,1,232
+34,Arcade Rain,Pixel Harbor,synthwave,moody,0.62,100,0.40,0.68,0.20,52,2020,rainy|nostalgic,none,1,240
+35,Block Party Ledger,Verse Valley,hip hop,happy,0.80,98,0.80,0.88,0.15,81,2020,playful|bright,en,0,201
+36,Late Train Verses,Kofi Marlow,hip hop,moody,0.55,86,0.38,0.74,0.30,70,2010,nocturnal|reflective,en,0,219
+37,Silk Thread,Amber Lane,r&b,relaxed,0.45,84,0.62,0.70,0.40,73,2020,warm|smooth,en,0,207
+38,After the Rain,Joelle Brix,r&b,melancholy,0.40,72,0.32,0.60,0.45,66,2010,rainy|reflective,en,0,230
+39,Porch Light,Willow Creek,country,peaceful,0.36,92,0.66,0.52,0.78,58,2010,warm|nostalgic,en,0,215
+40,Two Lane Summer,Hattie Rowe,country,happy,0.70,118,0.84,0.66,0.55,69,2020,sunny|bright,en,0,196
+41,Nocturne in Grey,Elise Varga,classical,peaceful,0.15,60,0.40,0.20,0.97,42,1990,dreamy|somber,none,1,312
+42,Allegro for Trains,Studio Kestrel,classical,focused,0.45,132,0.62,0.35,0.93,39,2000,focused|steady,none,1,268
+43,Strings at Dusk,Studio Kestrel,classical,romantic,0.30,70,0.55,0.25,0.96,37,2010,warm|dreamy,none,1,290
+44,Afterglow Protocol,Hyperlume,edm,euphoric,0.92,126,0.83,0.89,0.05,86,2020,euphoric|driving,none,1,244
+45,Sprint Interval,Max Pulse,edm,intense,0.95,140,0.70,0.86,0.03,74,2020,motivating|driving,none,1,210
+46,Cooldown Lights,Hyperlume,edm,chill,0.50,110,0.64,0.70,0.15,60,2020,dreamy|nocturnal,none,1,226
+47,Furnace Hymn,Black Harbor,metal,angry,0.95,172,0.25,0.40,0.04,50,2010,aggressive|dark,en,0,248
+48,Ashen Field,Gravel Saint,metal,melancholy,0.78,120,0.22,0.38,0.10,43,2010,dark|somber,en,0,276
+49,Harbor Sunday,Sun Rhythm,reggae,relaxed,0.50,78,0.80,0.76,0.45,62,2000,sunny|warm,es,0,221
+50,Roots and Rooftops,Kaya Bell,reggae,happy,0.62,86,0.88,0.82,0.38,65,2010,sunny|playful,en,0,203
+51,Kindling,Fern & Ash,folk,nostalgic,0.34,86,0.58,0.48,0.88,46,2010,cozy|warm,en,0,229
+52,Salt Road,June Arden,folk,melancholy,0.31,78,0.30,0.40,0.90,51,2020,somber|reflective,en,0,242
+53,Meadow Count,June Arden,folk,uplifting,0.52,104,0.76,0.55,0.85,53,2020,bright|warm,en,0,199
+54,Velvet Static,Amber Lane,r&b,romantic,0.48,80,0.64,0.68,0.36,71,2020,romantic|nocturnal,en,0,238
+55,Crowd Surfer,Voltline,rock,euphoric,0.90,144,0.74,0.62,0.08,72,2020,driving|bright,en,0,201
+56,Lantern Festival,Paper Lanterns,lofi,happy,0.46,84,0.72,0.62,0.70,54,2020,cozy|bright,none,1,172
+57,Deep Field,Glacier Tapes,ambient,focused,0.25,64,0.50,0.32,0.88,36,2020,focused|spacey,none,1,300
+58,Golden Hour Drive,Pixel Harbor,synthwave,nostalgic,0.66,108,0.62,0.72,0.18,58,2010,nostalgic|driving,none,1,236
+59,Stadium Lungs,Max Pulse,pop,intense,0.90,134,0.75,0.85,0.06,80,2020,motivating|driving,en,0,195
+60,Morning Pages,Kettle & Moss,lofi,peaceful,0.28,68,0.60,0.48,0.88,45,2020,cozy|focused,none,1,180

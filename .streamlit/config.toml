@@ -1,0 +1,7 @@
+[server]
+# Local only: the app is a personal demo with no authentication.
+address = "localhost"
+headless = true
+
+[browser]
+gatherUsageStats = false

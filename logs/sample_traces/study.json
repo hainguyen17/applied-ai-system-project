@@ -1,0 +1,240 @@
+{
+  "request": "rainy sunday study session, nothing with lyrics, about 40 minutes, start calm and build up a little",
+  "status": "ok",
+  "llm": "rule-based (offline)",
+  "confidence": 0.93,
+  "trace": [
+    {
+      "step": "guard",
+      "ms": 0.0,
+      "ok": true,
+      "status": "ok"
+    },
+    {
+      "step": "retrieve",
+      "ms": 5.1,
+      "enabled": true,
+      "hits": [
+        {
+          "cite": "knowledge/activities.md#study",
+          "score": 1.1816,
+          "matched": [
+            "study"
+          ]
+        },
+        {
+          "cite": "knowledge/activities.md#rainy day",
+          "score": 1.1472,
+          "matched": [
+            "rainy"
+          ]
+        },
+        {
+          "cite": "knowledge/moods.md#peaceful",
+          "score": 1.0942,
+          "matched": [
+            "calm"
+          ]
+        },
+        {
+          "cite": "knowledge/activities.md#morning",
+          "score": 0.1589,
+          "matched": []
+        },
+        {
+          "cite": "knowledge/activities.md#workout",
+          "score": 0.1493,
+          "matched": []
+        },
+        {
+          "cite": "knowledge/genres.md#pop",
+          "score": 0.1093,
+          "matched": []
+        },
+        {
+          "cite": "knowledge/activities.md#party",
+          "score": 0.1052,
+          "matched": []
+        },
+        {
+          "cite": "knowledge/genres.md#lofi",
+          "score": 0.1052,
+          "matched": []
+        }
+      ]
+    },
+    {
+      "step": "parse",
+      "ms": 1.6,
+      "parser": "rule-based (offline)",
+      "raw": {
+        "sources": [
+          "knowledge/activities.md#study",
+          "knowledge/moods.md#peaceful"
+        ],
+        "favorite_mood": "peaceful",
+        "activity": "study",
+        "energy_range": [
+          0.25,
+          0.45
+        ],
+        "target_energy": 0.3,
+        "arc": "build",
+        "prefers_instrumental": true,
+        "preferred_tags": [
+          "rainy",
+          "focused",
+          "steady",
+          "cozy"
+        ],
+        "duration_min": 40,
+        "confidence": 1.0
+      }
+    },
+    {
+      "step": "ground",
+      "ms": 0.0,
+      "profile": {
+        "favorite_mood": "peaceful",
+        "target_energy": 0.3,
+        "prefers_instrumental": true,
+        "preferred_tags": [
+          "rainy",
+          "focused",
+          "steady",
+          "cozy"
+        ],
+        "related_moods": {
+          "chill": 0.5,
+          "relaxed": 0.6
+        },
+        "likes_acoustic": true
+      },
+      "constraints": {
+        "arc": "build",
+        "duration_min": 40,
+        "energy_range": [
+          0.25,
+          0.45
+        ],
+        "citations": {
+          "favorite_mood": "knowledge/moods.md#peaceful"
+        }
+      },
+      "warnings": []
+    },
+    {
+      "step": "score",
+      "ms": 0.2,
+      "top": [
+        [
+          "Morning Pages",
+          3.41
+        ],
+        [
+          "Pine Hollow",
+          3.08
+        ],
+        [
+          "Low Tide Static",
+          3.05
+        ],
+        [
+          "Nocturne in Grey",
+          3.01
+        ],
+        [
+          "Tape Hiss Sunday",
+          2.96
+        ],
+        [
+          "Library Rain",
+          2.85
+        ],
+        [
+          "Coffee Shop Stories",
+          2.81
+        ],
+        [
+          "Porch Light",
+          2.8
+        ]
+      ]
+    },
+    {
+      "step": "draft",
+      "ms": 0.0,
+      "slots": 11,
+      "arc": "build",
+      "songs": [
+        "Nocturne in Grey",
+        "Low Tide Static",
+        "Morning Pages",
+        "Spacewalk Thoughts",
+        "Pine Hollow",
+        "Quiet Hours",
+        "Brushed Snare",
+        "Tape Hiss Sunday",
+        "Library Rain",
+        "Porch Light",
+        "Coffee Shop Stories"
+      ]
+    },
+    {
+      "step": "verify",
+      "ms": 0.0,
+      "round": 0,
+      "failed": [
+        "instrumental"
+      ],
+      "checks": {
+        "grounded_in_catalog": "every song exists in data/",
+        "no_duplicates": "0 repeated",
+        "respects_feedback": "0 disliked songs",
+        "instrumental": "instrumental only; 2 violate",
+        "tempo_transitions": "max jump 30 bpm; 0 too big",
+        "artist_spacing": "0 back-to-back artists",
+        "arc_fit": "mean energy error 0.06 (limit 0.15)",
+        "duration": "41.5 min vs 40 requested"
+      }
+    },
+    {
+      "step": "repair",
+      "ms": 0.0,
+      "round": 1,
+      "swaps": [
+        "slot 5: Pine Hollow -> Midnight Coding",
+        "slot 10: Porch Light -> Focus Flow"
+      ]
+    },
+    {
+      "step": "verify",
+      "ms": 0.0,
+      "round": 1,
+      "failed": [],
+      "checks": {
+        "grounded_in_catalog": "every song exists in data/",
+        "no_duplicates": "0 repeated",
+        "respects_feedback": "0 disliked songs",
+        "instrumental": "instrumental only; 0 violate",
+        "tempo_transitions": "max jump 30 bpm; 0 too big",
+        "artist_spacing": "0 back-to-back artists",
+        "arc_fit": "mean energy error 0.06 (limit 0.15)",
+        "duration": "39.9 min vs 40 requested"
+      }
+    },
+    {
+      "step": "confidence",
+      "ms": 0.0,
+      "pass_rate": 1.0,
+      "match": 0.75,
+      "parse": 1.0,
+      "confidence": 0.93
+    },
+    {
+      "step": "explain",
+      "ms": 0.8,
+      "intro_ok": true
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "request": "something sad",
+  "status": "ok",
+  "llm": "rule-based (offline)",
+  "confidence": 0.85,
+  "trace": [
+    {
+      "step": "guard",
+      "ms": 0.0,
+      "ok": true,
+      "status": "ok"
+    },
+    {
+      "step": "retrieve",
+      "ms": 4.8,
+      "enabled": true,
+      "hits": [
+        {
+          "cite": "knowledge/moods.md#sad",
+          "score": 1.5082,
+          "matched": [
+            "sad"
+          ]
+        }
+      ]
+    },
+    {
+      "step": "parse",
+      "ms": 1.8,
+      "parser": "rule-based (offline)",
+      "raw": {
+        "sources": [
+          "knowledge/moods.md#sad"
+        ],
+        "favorite_mood": "sad",
+        "confidence": 0.33
+      }
+    },
+    {
+      "step": "ground",
+      "ms": 0.1,
+      "profile": {
+        "favorite_mood": "melancholy",
+        "target_energy": 0.3,
+        "related_moods": {
+          "moody": 0.5
+        },
+        "likes_acoustic": true
+      },
+      "constraints": {
+        "energy_range": [
+          0.2,
+          0.4
+        ],
+        "citations": {
+          "favorite_mood": "knowledge/moods.md#sad"
+        }
+      },
+      "warnings": []
+    },
+    {
+      "step": "score",
+      "ms": 0.2,
+      "top": [
+        [
+          "Salt Road",
+          2.94
+        ],
+        [
+          "Blue Lantern",
+          2.92
+        ],
+        [
+          "Moonlit Sonata",
+          2.85
+        ],
+        [
+          "Northern Hum",
+          2.8
+        ],
+        [
+          "After the Rain",
+          2.57
+        ],
+        [
+          "Strings at Dusk",
+          1.98
+        ],
+        [
+          "Pine Hollow",
+          1.96
+        ],
+        [
+          "Spacewalk Thoughts",
+          1.93
+        ]
+      ]
+    },
+    {
+      "step": "draft",
+      "ms": 0.0,
+      "slots": 5,
+      "arc": "flat",
+      "songs": [
+        "Northern Hum",
+        "Moonlit Sonata",
+        "Blue Lantern",
+        "Salt Road",
+        "After the Rain"
+      ]
+    },
+    {
+      "step": "verify",
+      "ms": 0.0,
+      "round": 0,
+      "failed": [],
+      "checks": {
+        "grounded_in_catalog": "every song exists in data/",
+        "no_duplicates": "0 repeated",
+        "respects_feedback": "0 disliked songs",
+        "tempo_transitions": "max jump 30 bpm; 0 too big",
+        "artist_spacing": "0 back-to-back artists",
+        "arc_fit": "mean energy error 0.06 (limit 0.15)"
+      }
+    },
+    {
+      "step": "confidence",
+      "ms": 0.0,
+      "pass_rate": 1.0,
+      "match": 0.94,
+      "parse": 0.33,
+      "confidence": 0.85
+    },
+    {
+      "step": "explain",
+      "ms": 0.9,
+      "intro_ok": true
+    }
+  ]
+}

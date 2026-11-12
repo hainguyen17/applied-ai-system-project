@@ -1,0 +1,202 @@
+{
+  "request": "gym workout, warm up then go hard then cool down, 30 minutes",
+  "status": "ok",
+  "llm": "rule-based (offline)",
+  "confidence": 0.95,
+  "trace": [
+    {
+      "step": "guard",
+      "ms": 0.0,
+      "ok": true,
+      "status": "ok"
+    },
+    {
+      "step": "retrieve",
+      "ms": 5.1,
+      "enabled": true,
+      "hits": [
+        {
+          "cite": "knowledge/activities.md#workout",
+          "score": 1.4481,
+          "matched": [
+            "workout",
+            "gym"
+          ]
+        },
+        {
+          "cite": "knowledge/activities.md#sleep",
+          "score": 0.1271,
+          "matched": []
+        },
+        {
+          "cite": "knowledge/activities.md#morning",
+          "score": 0.0941,
+          "matched": []
+        }
+      ]
+    },
+    {
+      "step": "parse",
+      "ms": 1.3,
+      "parser": "rule-based (offline)",
+      "raw": {
+        "sources": [
+          "knowledge/activities.md#workout"
+        ],
+        "activity": "workout",
+        "energy_range": [
+          0.75,
+          0.97
+        ],
+        "target_energy": 0.86,
+        "arc": "peak",
+        "favorite_mood": "intense",
+        "preferred_tags": [
+          "motivating",
+          "driving"
+        ],
+        "duration_min": 30,
+        "confidence": 1.0
+      }
+    },
+    {
+      "step": "ground",
+      "ms": 0.0,
+      "profile": {
+        "favorite_mood": "intense",
+        "target_energy": 0.86,
+        "preferred_tags": [
+          "motivating",
+          "driving"
+        ],
+        "related_moods": {
+          "angry": 0.4,
+          "euphoric": 0.5,
+          "confident": 0.4
+        },
+        "likes_acoustic": false
+      },
+      "constraints": {
+        "arc": "peak",
+        "duration_min": 30,
+        "energy_range": [
+          0.75,
+          0.97
+        ],
+        "citations": {
+          "favorite_mood": "knowledge/moods.md#intense"
+        }
+      },
+      "warnings": []
+    },
+    {
+      "step": "score",
+      "ms": 0.2,
+      "top": [
+        [
+          "Stadium Lungs",
+          3.41
+        ],
+        [
+          "Gym Hero",
+          3.37
+        ],
+        [
+          "Sprint Interval",
+          3.35
+        ],
+        [
+          "Overpass Fever",
+          3.16
+        ],
+        [
+          "Storm Runner",
+          3.12
+        ],
+        [
+          "Second Wind",
+          2.86
+        ],
+        [
+          "Crowd Surfer",
+          2.65
+        ],
+        [
+          "Afterglow Protocol",
+          2.63
+        ]
+      ]
+    },
+    {
+      "step": "draft",
+      "ms": 0.0,
+      "slots": 8,
+      "arc": "peak",
+      "songs": [
+        "Second Wind",
+        "Stadium Lungs",
+        "Storm Runner",
+        "Gym Hero",
+        "Sprint Interval",
+        "Afterglow Protocol",
+        "Crowd Surfer",
+        "Overpass Fever"
+      ]
+    },
+    {
+      "step": "verify",
+      "ms": 0.0,
+      "round": 0,
+      "failed": [
+        "artist_spacing"
+      ],
+      "checks": {
+        "grounded_in_catalog": "every song exists in data/",
+        "no_duplicates": "0 repeated",
+        "respects_feedback": "0 disliked songs",
+        "tempo_transitions": "max jump 30 bpm; 0 too big",
+        "artist_spacing": "3 back-to-back artists",
+        "arc_fit": "mean energy error 0.06 (limit 0.15)",
+        "duration": "28.4 min vs 30 requested"
+      }
+    },
+    {
+      "step": "repair",
+      "ms": 0.1,
+      "round": 1,
+      "swaps": [
+        "slot 2: Stadium Lungs -> Pulse Cathedral",
+        "slot 5: Sprint Interval -> Chrome Horizon",
+        "slot 8: Overpass Fever -> Stadium Lungs"
+      ]
+    },
+    {
+      "step": "verify",
+      "ms": 0.0,
+      "round": 1,
+      "failed": [],
+      "checks": {
+        "grounded_in_catalog": "every song exists in data/",
+        "no_duplicates": "0 repeated",
+        "respects_feedback": "0 disliked songs",
+        "tempo_transitions": "max jump 30 bpm; 0 too big",
+        "artist_spacing": "0 back-to-back artists",
+        "arc_fit": "mean energy error 0.08 (limit 0.15)",
+        "duration": "28.9 min vs 30 requested"
+      }
+    },
+    {
+      "step": "confidence",
+      "ms": 0.0,
+      "pass_rate": 1.0,
+      "match": 0.83,
+      "parse": 1.0,
+      "confidence": 0.95
+    },
+    {
+      "step": "explain",
+      "ms": 0.8,
+      "intro_ok": true
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+Status: ok   LLM: rule-based (offline)
+
+A 8-song, 29-minute warm-up, peak, and cool-down playlist for "gym workout, warm up then go hard then cool down, 30 minutes". It opens with Second Wind by Max Pulse and closes with Stadium Lungs by Max Pulse.
+
+ 1. Second Wind - Max Pulse  [pop/confident]  energy 0.86  126 bpm  (warm-up)  score 2.86
+      why: related mood confident (+0.40); energy 0.86 vs target 0.86 (+1.50); acousticness fit (+0.46); mood tags driving+motivating (+0.50); warm-up slot, target energy 0.75
+      sources: knowledge/moods.md#intense
+ 2. Pulse Cathedral - Hyperlume  [edm/euphoric]  energy 0.96  128 bpm  (warm-up)  score 2.58
+      why: related mood euphoric (+0.50); energy 0.96 vs target 0.86 (+1.35); acousticness fit (+0.48); mood tags driving (+0.25); warm-up slot, target energy 0.83
+      sources: knowledge/moods.md#intense
+ 3. Storm Runner - Voltline  [rock/intense]  energy 0.91  152 bpm  (peak)  score 3.12
+      why: mood match (+1.0); energy 0.91 vs target 0.86 (+1.42); acousticness fit (+0.45); mood tags driving (+0.25); peak slot, target energy 0.91
+      sources: knowledge/moods.md#intense
+ 4. Gym Hero - Max Pulse  [pop/intense]  energy 0.93  132 bpm  (peak)  score 3.37
+      why: mood match (+1.0); energy 0.93 vs target 0.86 (+1.40); acousticness fit (+0.47); mood tags driving+motivating (+0.50); peak slot, target energy 0.97
+      sources: knowledge/moods.md#intense
+ 5. Chrome Horizon - Neon Echo  [synthwave/euphoric]  energy 0.80  118 bpm  (peak)  score 2.61
+      why: related mood euphoric (+0.50); energy 0.80 vs target 0.86 (+1.41); acousticness fit (+0.45); mood tags driving (+0.25); peak slot, target energy 0.97
+      sources: knowledge/moods.md#intense
+ 6. Afterglow Protocol - Hyperlume  [edm/euphoric]  energy 0.92  126 bpm  (peak)  score 2.63
+      why: related mood euphoric (+0.50); energy 0.92 vs target 0.86 (+1.41); acousticness fit (+0.47); mood tags driving (+0.25); peak slot, target energy 0.91
+      sources: knowledge/moods.md#intense
+ 7. Crowd Surfer - Voltline  [rock/euphoric]  energy 0.90  144 bpm  (cool-down)  score 2.65
+      why: related mood euphoric (+0.50); energy 0.90 vs target 0.86 (+1.44); acousticness fit (+0.46); mood tags driving (+0.25); cool-down slot, target energy 0.83
+      sources: knowledge/moods.md#intense
+ 8. Stadium Lungs - Max Pulse  [pop/intense]  energy 0.90  134 bpm  (cool-down)  score 3.41
+      why: mood match (+1.0); energy 0.90 vs target 0.86 (+1.44); acousticness fit (+0.47); mood tags driving+motivating (+0.50); cool-down slot, target energy 0.75
+      sources: knowledge/moods.md#intense
+
+Total: 28.9 min   Confidence: 0.95   Repair rounds: 1
+Checks: grounded_in_catalog=pass, no_duplicates=pass, respects_feedback=pass, tempo_transitions=pass, artist_spacing=pass, arc_fit=pass, duration=pass

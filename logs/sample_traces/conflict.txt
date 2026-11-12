@@ -1,0 +1,23 @@
+Status: ok   LLM: rule-based (offline)
+
+A 5-song, 19-minute steady playlist for "metal but very calm and quiet". It opens with Low Tide Static by Orbit Bloom and closes with Ashen Field by Gravel Saint.
+
+ 1. Low Tide Static - Orbit Bloom  [ambient/peaceful]  energy 0.18  58 bpm  (steady)  score 2.80
+      why: mood match (+1.0); energy 0.18 vs target 0.30 (+1.32); acousticness fit (+0.47); steady slot, target energy 0.30
+      sources: knowledge/moods.md#peaceful
+ 2. Morning Pages - Kettle & Moss  [lofi/peaceful]  energy 0.28  68 bpm  (steady)  score 2.91
+      why: mood match (+1.0); energy 0.28 vs target 0.30 (+1.47); acousticness fit (+0.44); steady slot, target energy 0.30
+      sources: knowledge/moods.md#peaceful
+ 3. Pine Hollow - Fern & Ash  [folk/peaceful]  energy 0.30  74 bpm  (steady)  score 2.96
+      why: mood match (+1.0); energy 0.30 vs target 0.30 (+1.50); acousticness fit (+0.46); steady slot, target energy 0.30
+      sources: knowledge/moods.md#peaceful
+ 4. Porch Light - Willow Creek  [country/peaceful]  energy 0.36  92 bpm  (steady)  score 2.80
+      why: mood match (+1.0); energy 0.36 vs target 0.30 (+1.41); acousticness fit (+0.39); steady slot, target energy 0.30
+      sources: knowledge/moods.md#peaceful
+ 5. Ashen Field - Gravel Saint  [metal/melancholy]  energy 0.78  120 bpm  (steady)  score 2.83
+      why: genre match (+2.0); energy 0.78 vs target 0.30 (+0.78); acousticness fit (+0.05); steady slot, target energy 0.30
+      sources: knowledge/genres.md#metal
+
+Total: 19.4 min   Confidence: 0.80   NEEDS REVIEW   Repair rounds: 1
+Checks: grounded_in_catalog=pass, no_duplicates=pass, respects_feedback=pass, tempo_transitions=pass, artist_spacing=pass, arc_fit=pass, honors_genre=FAIL
+note: Only 1/5 songs are metal: the catalog has too few metal songs that fit the other parts of the request. Loosen the energy or the genre and try again.

@@ -1,0 +1,24 @@
+Status: ok   LLM: rule-based (offline)
+
+A 5-song, 22-minute steady playlist for "something sad". It opens with Northern Hum by Glacier Tapes and closes with After the Rain by Joelle Brix.
+
+ 1. Northern Hum - Glacier Tapes  [ambient/melancholy]  energy 0.20  62 bpm  (steady)  score 2.80
+      why: mood match (+1.0); energy 0.20 vs target 0.30 (+1.35); acousticness fit (+0.45); steady slot, target energy 0.30
+      sources: knowledge/moods.md#sad
+ 2. Moonlit Sonata - Elise Varga  [classical/melancholy]  energy 0.22  68 bpm  (steady)  score 2.85
+      why: mood match (+1.0); energy 0.22 vs target 0.30 (+1.38); acousticness fit (+0.47); steady slot, target energy 0.30
+      sources: knowledge/moods.md#sad
+ 3. Blue Lantern - Mara Quell Trio  [jazz/melancholy]  energy 0.29  76 bpm  (steady)  score 2.92
+      why: mood match (+1.0); energy 0.29 vs target 0.30 (+1.48); acousticness fit (+0.43); steady slot, target energy 0.30
+      sources: knowledge/moods.md#sad
+ 4. Salt Road - June Arden  [folk/melancholy]  energy 0.31  78 bpm  (steady)  score 2.94
+      why: mood match (+1.0); energy 0.31 vs target 0.30 (+1.48); acousticness fit (+0.45); steady slot, target energy 0.30
+      sources: knowledge/moods.md#sad
+ 5. After the Rain - Joelle Brix  [r&b/melancholy]  energy 0.40  72 bpm  (steady)  score 2.57
+      why: mood match (+1.0); energy 0.40 vs target 0.30 (+1.35); acousticness fit (+0.23); steady slot, target energy 0.30
+      sources: knowledge/moods.md#sad
+
+Total: 21.8 min   Confidence: 0.85   Repair rounds: 0
+Checks: grounded_in_catalog=pass, no_duplicates=pass, respects_feedback=pass, tempo_transitions=pass, artist_spacing=pass, arc_fit=pass
+note: 'sad' is not a catalog mood; using 'melancholy' (knowledge/moods.md#sad).
+note: No energy level given; using the typical range for 'sad' (0.20-0.40, knowledge/moods.md#sad).

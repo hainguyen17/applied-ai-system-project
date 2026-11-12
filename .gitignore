@@ -13,3 +13,10 @@ venv/
 
 # Pytest cache
 .pytest_cache/
+
+# Secrets
+.env
+
+# Runtime logs (curated examples in logs/sample_traces/ are committed)
+logs/*
+!logs/sample_traces/

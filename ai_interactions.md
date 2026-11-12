@@ -1,5 +1,35 @@
 # AI Interactions Log
 
+## Final Project (VibeMatch Agent 2.0): Agentic Workflow Traces
+
+The agent records every intermediate step (guard, retrieve, parse, ground, score, draft, verify, repair, confidence, explain) as a JSON trace. Four committed examples:
+
+| Request | Readable output | Full trace | What the trace shows |
+|---|---|---|---|
+| rainy sunday study, nothing with lyrics, ~40 min, build up | [study.txt](logs/sample_traces/study.txt) | [study.json](logs/sample_traces/study.json) | Draft had 2 vocal songs; verify failed `instrumental`; repair swapped slots 5 and 10; round 1 passed all 8 checks |
+| gym workout, warm up, go hard, cool down, 30 min | [workout.txt](logs/sample_traces/workout.txt) | [workout.json](logs/sample_traces/workout.json) | `workout` activity retrieved; peak arc targets 0.75, then 0.97, then 0.75; repaired back-to-back artists |
+| something sad | [sad.txt](logs/sample_traces/sad.txt) | [sad.json](logs/sample_traces/sad.json) | `moods.md#sad` retrieved; ground step mapped sad to melancholy and filled energy 0.30 from its typical range |
+| metal but very calm and quiet | [conflict.txt](logs/sample_traces/conflict.txt) | [conflict.json](logs/sample_traces/conflict.json) | `honors_genre` failed and could not be repaired, so the playlist is flagged for review with an explanation |
+
+Regenerate any of them with `python -m src.agent_cli "<request>" --save-trace` (written to `logs/traces/`), or open the trace expander in the Streamlit app.
+
+Excerpt from `study.json`, showing the verify, repair, and verify sequence:
+
+```json
+{"step": "draft", "slots": 11, "arc": "build", "songs": ["Nocturne in Grey", "Low Tide Static", "Morning Pages", "Spacewalk Thoughts", "Pine Hollow", "Quiet Hours", "Brushed Snare", "Tape Hiss Sunday", "Library Rain", "Porch Light", "Coffee Shop Stories"]}
+{"step": "verify", "round": 0, "failed": ["instrumental"], "checks": {"instrumental": "instrumental only; 2 violate", "duration": "39.9 min vs 40 requested", "...": "..."}}
+{"step": "repair", "round": 1, "swaps": ["slot 5: Pine Hollow -> Midnight Coding", "slot 10: Porch Light -> Focus Flow"]}
+{"step": "verify", "round": 1, "failed": []}
+```
+
+### Specialization (few-shot prompting)
+
+`ClaudeLLM.build_parse_prompt` adds three worked examples (few-shot) unless `--zero-shot` is passed. `python eval.py --parse` measures field accuracy and schema-clean output rates for both prompt styles on 12 labelled requests. **Status:** implemented and unit-tested with a stubbed HTTP call, but not yet measured against the live API, because no `ANTHROPIC_API_KEY` was available during the build.
+
+---
+
+# Module 3 Interactions (original project)
+
 > **Stretch features only.** Only fill in the sections that apply to stretch features you attempted. If you did not attempt a stretch feature, leave its section blank or delete it. This file is not required for the core project.
 
 Stretch features attempted: Challenge 1 (advanced song features), Challenge 2 (scoring modes), Challenge 3 (diversity penalty), Challenge 4 (summary table). Work was done on the `experiment/advanced-features` branch.

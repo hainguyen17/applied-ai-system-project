@@ -24,6 +24,7 @@ class Song:
     mood_tags: List[str] = field(default_factory=list)
     language: str = "en"
     is_instrumental: int = 0
+    duration_sec: int = 210
 
 
 @dataclass
@@ -111,8 +112,23 @@ def load_songs(csv_path: str) -> List[Dict]:
                 row["release_decade"] = int(row["release_decade"])
                 row["is_instrumental"] = int(row["is_instrumental"])
                 row["mood_tags"] = [t for t in row["mood_tags"].split("|") if t]
+            if row.get("duration_sec"):
+                row["duration_sec"] = int(row["duration_sec"])
             songs.append(row)
     return songs
+
+
+def load_catalog(paths: List[str]) -> List[Dict]:
+    """Load several song CSVs into one catalog. Later files may not reuse an earlier id."""
+    catalog: List[Dict] = []
+    seen = set()
+    for path in paths:
+        for song in load_songs(path):
+            if song["id"] in seen:
+                raise ValueError(f"Duplicate song id {song['id']} in {path}")
+            seen.add(song["id"])
+            catalog.append(song)
+    return catalog
 
 
 def _norm(value) -> str:
@@ -136,13 +152,26 @@ def score_song(user_prefs: Dict, song: Dict, mode: Union[str, Weights] = DEFAULT
     score = 0.0
     reasons = []
 
+    # Related labels come from the knowledge base (src/retriever.py). They give partial
+    # credit, e.g. "indie pop" earns some genre points for a pop fan. Absent = old behavior.
+    related_genres = {_norm(k): v for k, v in (user_prefs.get("related_genres") or {}).items()}
+    related_moods = {_norm(k): v for k, v in (user_prefs.get("related_moods") or {}).items()}
+
     if _norm(song["genre"]) == _norm(user_prefs.get("favorite_genre")):
         score += w.genre
         reasons.append(f"genre match (+{w.genre:.1f})")
+    elif _norm(song["genre"]) in related_genres:
+        pts = w.genre * related_genres[_norm(song["genre"])]
+        score += pts
+        reasons.append(f"related genre {song['genre']} (+{pts:.2f})")
 
     if _norm(song["mood"]) == _norm(user_prefs.get("favorite_mood")):
         score += w.mood
         reasons.append(f"mood match (+{w.mood:.1f})")
+    elif _norm(song["mood"]) in related_moods:
+        pts = w.mood * related_moods[_norm(song["mood"])]
+        score += pts
+        reasons.append(f"related mood {song['mood']} (+{pts:.2f})")
 
     target = user_prefs.get("target_energy")
     if target is not None:
