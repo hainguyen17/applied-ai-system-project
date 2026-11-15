@@ -20,7 +20,7 @@ The Module 3 scorer (`score_song`) is still the ranking engine. The extension bu
 | **Guardrails** | Input checks (injection, off-topic, empty, too long), schema validation and clamping, catalog grounding, and an intro check that blocks invented songs | `src/guardrails.py` |
 | **Human in the loop** | A clarifying question when the request is too vague. 👍/👎 feedback that adjusts weights and reports every change | `src/feedback.py`, `app.py` |
 | **Catalog expansion** | 18 songs grow to 60, with song duration added. The 42 new songs are synthetic | `data/songs_expansion.csv` |
-| **Evaluation** | 86 pytest tests, a 14-scenario harness run with RAG on and off, a parser-accuracy suite, and a bias audit | `tests/`, `eval.py`, `src/bias_audit.py` |
+| **Evaluation** | 87 pytest tests, a 14-scenario harness run with RAG on and off, a parser-accuracy suite, and a bias audit | `tests/`, `eval.py`, `src/bias_audit.py` |
 | **Streamlit UI** | Request box, playlist with "why" expanders, checks table, feedback buttons, and the full agent trace | `app.py` |
 
 ## Architecture Overview
@@ -83,7 +83,7 @@ export CLAUDE_MODEL=claude-haiku-4-5
 
 | Command | What it does |
 |---|---|
-| `pytest` | 86 tests, about 2 seconds, no network |
+| `pytest` | 87 tests, about 2 seconds, no network |
 | `python eval.py` | 14 scenarios with RAG on, then RAG off |
 | `python eval.py --parse` | Parser field accuracy (adds Claude zero-shot vs few-shot when a key is set) |
 | `python -m src.bias_audit` | Module 3 weaknesses, before and after |
@@ -158,7 +158,7 @@ The conflicting request still returns a playlist, but the system says plainly th
 
 ## Testing Summary
 
-- **Unit and integration tests: 86 of 86 pass.** That's 50 original Module 3 tests plus 36 new ones. The new tests cover the retriever, guardrails, arc shapes, the end-to-end agent loop, the repair trace, feedback, LLM outage fallback, a lying-intro guardrail, the Claude request format (HTTP stubbed), and a headless Streamlit UI test.
+- **Unit and integration tests: 87 of 87 pass.** That's 50 original Module 3 tests plus 37 new ones. The new tests cover the retriever, guardrails, arc shapes, the end-to-end agent loop, the repair trace, feedback, LLM outage fallback, a lying-intro guardrail, a failed trace write (the playlist still comes back, with a warning), the Claude request format (HTTP stubbed), and a headless Streamlit UI test.
 - **Scenario harness (`eval.py`): 14 of 14 with RAG on, 8 of 14 with RAG off.** The six baseline failures are exactly the requests that use words outside the catalog: sad, bossa nova, gym, fall asleep, party, and "lofi hip hop" read as plain hip hop. Average confidence on answered requests was 0.85 with RAG and 0.73 without.
 - **Parser accuracy:** the offline parser matched 24 of 24 expected fields on 12 labelled requests. The Claude zero-shot versus few-shot comparison is wired up (`python eval.py --parse`) but hasn't been run yet because no API key was configured in the build environment, so I don't claim a number for it.
 - **Bias audit:** see the [model card](model_card.md#bias-audit). The headline is that RAG removed the zero-credit words, but expanding the catalog made genre dominance worse. Only the energy-focused mode fixed the Module 3 "lofi but energy 0.9" case.

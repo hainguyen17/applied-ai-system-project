@@ -50,7 +50,7 @@ Confidence values are in parentheses. The six RAG-off failures are all requests 
 
 ### Automated tests
 
-86 of 86 pass (`pytest`): 50 from Module 3 and 36 new. The Module 3 NDCG grader still scores 98.0.
+87 of 87 pass (`pytest`): 50 from Module 3 and 37 new. The Module 3 NDCG grader still scores 98.0.
 
 ### Parser accuracy (`python eval.py --parse`)
 
