@@ -189,6 +189,22 @@ class TestLLMLayer:
         monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
         assert isinstance(get_llm(Vocabulary.from_catalog(catalog)), RuleBasedParser)
 
+    def test_trace_write_failure_keeps_playlist(self, catalog, retriever, monkeypatch):
+        import builtins
+        real_open = builtins.open
+
+        def failing_open(path, mode="r", *args, **kwargs):
+            if "w" in mode and str(path).endswith(".json"):
+                raise OSError(28, "No space left on device")
+            return real_open(path, mode, *args, **kwargs)
+
+        monkeypatch.setattr(builtins, "open", failing_open)
+        r = VibeMatchAgent(catalog=catalog, retriever=retriever,
+                           llm=RuleBasedParser(Vocabulary.from_catalog(catalog)), save_trace=True).run("chill lofi")
+        assert r.status == "ok" and r.items
+        assert r.trace_path == ""
+        assert any("trace could not be saved" in w for w in r.warnings)
+
 
 # ---- feedback -----------------------------------------------------------------------------
 class TestFeedback:

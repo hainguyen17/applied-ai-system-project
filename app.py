@@ -107,5 +107,5 @@ st.dataframe(pd.DataFrame([{"check": c.name, "result": "pass" if c.passed else "
                            for c in r.checks]), hide_index=True, use_container_width=True)
 
 with st.expander("Agent trace (every step, for debugging and grading)"):
-    st.caption(f"LLM: {r.llm}. Saved to {r.trace_path}")
+    st.caption(f"LLM: {r.llm}. Saved to {r.trace_path}" if r.trace_path else f"LLM: {r.llm}. Trace not saved.")
     st.json(r.trace)

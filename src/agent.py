@@ -421,13 +421,18 @@ class VibeMatchAgent:
 
     def _finish(self, result: Result) -> Result:
         if self.save_trace:
-            os.makedirs(TRACE_DIR, exist_ok=True)
             stamp = datetime.now().strftime("%Y%m%d-%H%M%S-%f")
             path = os.path.join(TRACE_DIR, f"{stamp}.json")
-            with open(path, "w", encoding="utf-8") as f:
-                json.dump({"request": result.request, "status": result.status, "llm": result.llm,
-                           "confidence": result.confidence, "trace": result.trace}, f, indent=2, default=str)
-            result.trace_path = path
+            try:
+                os.makedirs(TRACE_DIR, exist_ok=True)
+                with open(path, "w", encoding="utf-8") as f:
+                    json.dump({"request": result.request, "status": result.status, "llm": result.llm,
+                               "confidence": result.confidence, "trace": result.trace}, f, indent=2, default=str)
+                result.trace_path = path
+            except OSError as e:
+                # The trace is a debugging aid; failing to save it must not lose the playlist.
+                log.warning("could not save trace to %s: %s", path, e)
+                result.warnings.append("The trace could not be saved to disk; the playlist is unaffected.")
         return result
 
 
