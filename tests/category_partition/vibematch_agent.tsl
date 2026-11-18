@@ -1,0 +1,92 @@
+# Category-partition spec for VibeMatchAgent.run(request)
+# Compile: tslcompiler -o vibematch_agent.tsl.txt vibematch_agent.tsl
+#
+# Parameters: the free-text request (size, intent, and what it says)
+# Environment: retrieval on/off, LLM behaviour, listener feedback state
+
+# ---------------- Parameter: request text ----------------
+  Request size:
+    normal length.
+    empty.                                              [error]
+    whitespace only.                                    [error]
+    exactly 500 characters.                             [single]
+    over 500 characters.                                [error]
+
+  Request intent:
+    music request.
+    prompt injection.                                   [error]
+    off-topic task with no music words.                 [error]
+    off-topic keyword inside a music request.           [single]
+    no mood, genre, activity, or energy at all.         [error]
+
+  Mood wording:
+    none.
+    catalog mood word.                                  
+    word not in catalog, mapped by glossary.            
+    glossary synonym of a catalog mood.                 [single]
+    two moods in one request.                           [single]
+    negated mood.                                       [single]
+
+  Genre wording:
+    none.
+    catalog genre word.                                 
+    word not in catalog, mapped by glossary.            [single]
+    glossary synonym of a catalog genre.                [single]
+    phrase containing a shorter genre.                  [single]
+    genre unknown to the glossary.                      [single]
+    negated genre.                                      [single]
+
+  Activity wording:
+    none.
+    one activity.                                       
+    two activities.                                     [single]
+
+  Energy wording:
+    none.
+    explicit low word.                                  [single]
+    explicit high word.                                 [single]
+    numeric value.                                      [single]
+    negated high word.                                  [single]
+    conflicts with the genre.                           [single]
+
+  Length wording:
+    none.
+    minutes in range.                                   [property Duration]
+    song count in range.                                [single]
+    hours.                                              [single]
+    hyphenated minutes.                                 [single]
+    compound hours and minutes.                         [single]
+    shortest allowed length.                            [single]
+    longest allowed length.                             [single]
+    below minimum.                                      [single]
+    above maximum.                                      [single]
+
+  Vocals wording:
+    none.
+    wants instrumental.                                 [if Duration]
+    wants vocals.                                       [single]
+    instrumental phrase that contains a vocal phrase.   [single]
+
+  Arc wording:
+    none.
+    build.                                              [single]
+    peak (warm up and cool down).                       [single]
+    wind-down.                                          [single]
+
+# ---------------- Environment ----------------
+  Retrieval:
+    on.
+    off.                                                [single]
+
+  LLM behaviour:
+    offline parser.
+    raises an error (outage).                           [single]
+    returns out-of-range values and unknown fields.     [single]
+    returns non-numeric confidence.                     [single]
+    returns a list where a string is expected.          [single]
+    intro names a song outside the playlist.            [single]
+
+  Listener feedback:
+    no songs excluded.
+    some songs excluded.                                [single]
+    every song meeting a hard constraint excluded.      [single]

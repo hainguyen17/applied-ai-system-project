@@ -1,0 +1,712 @@
+Test Case 1		<error>
+	Request size  : empty 
+
+
+Test Case 2		<error>
+	Request size  : whitespace only 
+
+
+Test Case 3		<single>
+	Request size  : exactly 500 characters 
+
+
+Test Case 4		<error>
+	Request size  : over 500 characters 
+
+
+Test Case 5		<error>
+	Request intent  : prompt injection 
+
+
+Test Case 6		<error>
+	Request intent  : off-topic task with no music words 
+
+
+Test Case 7		<single>
+	Request intent  : off-topic keyword inside a music request 
+
+
+Test Case 8		<error>
+	Request intent  : no mood, genre, activity, or energy at all 
+
+
+Test Case 9		<single>
+	Mood wording  : glossary synonym of a catalog mood 
+
+
+Test Case 10		<single>
+	Mood wording  : two moods in one request 
+
+
+Test Case 11		<single>
+	Mood wording  : negated mood 
+
+
+Test Case 12		<single>
+	Genre wording  : word not in catalog, mapped by glossary 
+
+
+Test Case 13		<single>
+	Genre wording  : glossary synonym of a catalog genre 
+
+
+Test Case 14		<single>
+	Genre wording  : phrase containing a shorter genre 
+
+
+Test Case 15		<single>
+	Genre wording  : genre unknown to the glossary 
+
+
+Test Case 16		<single>
+	Genre wording  : negated genre 
+
+
+Test Case 17		<single>
+	Activity wording  : two activities 
+
+
+Test Case 18		<single>
+	Energy wording  : explicit low word 
+
+
+Test Case 19		<single>
+	Energy wording  : explicit high word 
+
+
+Test Case 20		<single>
+	Energy wording  : numeric value 
+
+
+Test Case 21		<single>
+	Energy wording  : negated high word 
+
+
+Test Case 22		<single>
+	Energy wording  : conflicts with the genre 
+
+
+Test Case 23		<single>
+	Length wording  : song count in range 
+
+
+Test Case 24		<single>
+	Length wording  : hours 
+
+
+Test Case 25		<single>
+	Length wording  : hyphenated minutes 
+
+
+Test Case 26		<single>
+	Length wording  : compound hours and minutes 
+
+
+Test Case 27		<single>
+	Length wording  : shortest allowed length 
+
+
+Test Case 28		<single>
+	Length wording  : longest allowed length 
+
+
+Test Case 29		<single>
+	Length wording  : below minimum 
+
+
+Test Case 30		<single>
+	Length wording  : above maximum 
+
+
+Test Case 31		<single>
+	Vocals wording  : wants vocals 
+
+
+Test Case 32		<single>
+	Vocals wording  : instrumental phrase that contains a vocal phrase 
+
+
+Test Case 33		<single>
+	Arc wording  : build 
+
+
+Test Case 34		<single>
+	Arc wording  : peak (warm up and cool down) 
+
+
+Test Case 35		<single>
+	Arc wording  : wind-down 
+
+
+Test Case 36		<single>
+	Retrieval  : off 
+
+
+Test Case 37		<single>
+	LLM behaviour  : raises an error (outage) 
+
+
+Test Case 38		<single>
+	LLM behaviour  : returns out-of-range values and unknown fields 
+
+
+Test Case 39		<single>
+	LLM behaviour  : returns non-numeric confidence 
+
+
+Test Case 40		<single>
+	LLM behaviour  : returns a list where a string is expected 
+
+
+Test Case 41		<single>
+	LLM behaviour  : intro names a song outside the playlist 
+
+
+Test Case 42		<single>
+	Listener feedback  : some songs excluded 
+
+
+Test Case 43		<single>
+	Listener feedback  : every song meeting a hard constraint excluded 
+
+
+Test Case 44
+	Request size       : normal length     
+	Request intent     : music request     
+	Mood wording       : none              
+	Genre wording      : none              
+	Activity wording   : none              
+	Energy wording     : none              
+	Length wording     : none              
+	Vocals wording     : none              
+	Arc wording        : none              
+	Retrieval          : on                
+	LLM behaviour      : offline parser    
+	Listener feedback  : no songs excluded 
+
+
+Test Case 45
+	Request size       : normal length     
+	Request intent     : music request     
+	Mood wording       : none              
+	Genre wording      : none              
+	Activity wording   : none              
+	Energy wording     : none              
+	Length wording     : minutes in range  
+	Vocals wording     : none              
+	Arc wording        : none              
+	Retrieval          : on                
+	LLM behaviour      : offline parser    
+	Listener feedback  : no songs excluded 
+
+
+Test Case 46
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : none               
+	Genre wording      : none               
+	Activity wording   : none               
+	Energy wording     : none               
+	Length wording     : minutes in range   
+	Vocals wording     : wants instrumental 	(follows [if Duration])
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 47
+	Request size       : normal length     
+	Request intent     : music request     
+	Mood wording       : none              
+	Genre wording      : none              
+	Activity wording   : one activity      
+	Energy wording     : none              
+	Length wording     : none              
+	Vocals wording     : none              
+	Arc wording        : none              
+	Retrieval          : on                
+	LLM behaviour      : offline parser    
+	Listener feedback  : no songs excluded 
+
+
+Test Case 48
+	Request size       : normal length     
+	Request intent     : music request     
+	Mood wording       : none              
+	Genre wording      : none              
+	Activity wording   : one activity      
+	Energy wording     : none              
+	Length wording     : minutes in range  
+	Vocals wording     : none              
+	Arc wording        : none              
+	Retrieval          : on                
+	LLM behaviour      : offline parser    
+	Listener feedback  : no songs excluded 
+
+
+Test Case 49
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : none               
+	Genre wording      : none               
+	Activity wording   : one activity       
+	Energy wording     : none               
+	Length wording     : minutes in range   
+	Vocals wording     : wants instrumental 	(follows [if Duration])
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 50
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : none               
+	Genre wording      : catalog genre word 
+	Activity wording   : none               
+	Energy wording     : none               
+	Length wording     : none               
+	Vocals wording     : none               
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 51
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : none               
+	Genre wording      : catalog genre word 
+	Activity wording   : none               
+	Energy wording     : none               
+	Length wording     : minutes in range   
+	Vocals wording     : none               
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 52
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : none               
+	Genre wording      : catalog genre word 
+	Activity wording   : none               
+	Energy wording     : none               
+	Length wording     : minutes in range   
+	Vocals wording     : wants instrumental 	(follows [if Duration])
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 53
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : none               
+	Genre wording      : catalog genre word 
+	Activity wording   : one activity       
+	Energy wording     : none               
+	Length wording     : none               
+	Vocals wording     : none               
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 54
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : none               
+	Genre wording      : catalog genre word 
+	Activity wording   : one activity       
+	Energy wording     : none               
+	Length wording     : minutes in range   
+	Vocals wording     : none               
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 55
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : none               
+	Genre wording      : catalog genre word 
+	Activity wording   : one activity       
+	Energy wording     : none               
+	Length wording     : minutes in range   
+	Vocals wording     : wants instrumental 	(follows [if Duration])
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 56
+	Request size       : normal length     
+	Request intent     : music request     
+	Mood wording       : catalog mood word 
+	Genre wording      : none              
+	Activity wording   : none              
+	Energy wording     : none              
+	Length wording     : none              
+	Vocals wording     : none              
+	Arc wording        : none              
+	Retrieval          : on                
+	LLM behaviour      : offline parser    
+	Listener feedback  : no songs excluded 
+
+
+Test Case 57
+	Request size       : normal length     
+	Request intent     : music request     
+	Mood wording       : catalog mood word 
+	Genre wording      : none              
+	Activity wording   : none              
+	Energy wording     : none              
+	Length wording     : minutes in range  
+	Vocals wording     : none              
+	Arc wording        : none              
+	Retrieval          : on                
+	LLM behaviour      : offline parser    
+	Listener feedback  : no songs excluded 
+
+
+Test Case 58
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : catalog mood word  
+	Genre wording      : none               
+	Activity wording   : none               
+	Energy wording     : none               
+	Length wording     : minutes in range   
+	Vocals wording     : wants instrumental 	(follows [if Duration])
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 59
+	Request size       : normal length     
+	Request intent     : music request     
+	Mood wording       : catalog mood word 
+	Genre wording      : none              
+	Activity wording   : one activity      
+	Energy wording     : none              
+	Length wording     : none              
+	Vocals wording     : none              
+	Arc wording        : none              
+	Retrieval          : on                
+	LLM behaviour      : offline parser    
+	Listener feedback  : no songs excluded 
+
+
+Test Case 60
+	Request size       : normal length     
+	Request intent     : music request     
+	Mood wording       : catalog mood word 
+	Genre wording      : none              
+	Activity wording   : one activity      
+	Energy wording     : none              
+	Length wording     : minutes in range  
+	Vocals wording     : none              
+	Arc wording        : none              
+	Retrieval          : on                
+	LLM behaviour      : offline parser    
+	Listener feedback  : no songs excluded 
+
+
+Test Case 61
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : catalog mood word  
+	Genre wording      : none               
+	Activity wording   : one activity       
+	Energy wording     : none               
+	Length wording     : minutes in range   
+	Vocals wording     : wants instrumental 	(follows [if Duration])
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 62
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : catalog mood word  
+	Genre wording      : catalog genre word 
+	Activity wording   : none               
+	Energy wording     : none               
+	Length wording     : none               
+	Vocals wording     : none               
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 63
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : catalog mood word  
+	Genre wording      : catalog genre word 
+	Activity wording   : none               
+	Energy wording     : none               
+	Length wording     : minutes in range   
+	Vocals wording     : none               
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 64
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : catalog mood word  
+	Genre wording      : catalog genre word 
+	Activity wording   : none               
+	Energy wording     : none               
+	Length wording     : minutes in range   
+	Vocals wording     : wants instrumental 	(follows [if Duration])
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 65
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : catalog mood word  
+	Genre wording      : catalog genre word 
+	Activity wording   : one activity       
+	Energy wording     : none               
+	Length wording     : none               
+	Vocals wording     : none               
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 66
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : catalog mood word  
+	Genre wording      : catalog genre word 
+	Activity wording   : one activity       
+	Energy wording     : none               
+	Length wording     : minutes in range   
+	Vocals wording     : none               
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 67
+	Request size       : normal length      
+	Request intent     : music request      
+	Mood wording       : catalog mood word  
+	Genre wording      : catalog genre word 
+	Activity wording   : one activity       
+	Energy wording     : none               
+	Length wording     : minutes in range   
+	Vocals wording     : wants instrumental 	(follows [if Duration])
+	Arc wording        : none               
+	Retrieval          : on                 
+	LLM behaviour      : offline parser     
+	Listener feedback  : no songs excluded  
+
+
+Test Case 68
+	Request size       : normal length                           
+	Request intent     : music request                           
+	Mood wording       : word not in catalog, mapped by glossary 
+	Genre wording      : none                                    
+	Activity wording   : none                                    
+	Energy wording     : none                                    
+	Length wording     : none                                    
+	Vocals wording     : none                                    
+	Arc wording        : none                                    
+	Retrieval          : on                                      
+	LLM behaviour      : offline parser                          
+	Listener feedback  : no songs excluded                       
+
+
+Test Case 69
+	Request size       : normal length                           
+	Request intent     : music request                           
+	Mood wording       : word not in catalog, mapped by glossary 
+	Genre wording      : none                                    
+	Activity wording   : none                                    
+	Energy wording     : none                                    
+	Length wording     : minutes in range                        
+	Vocals wording     : none                                    
+	Arc wording        : none                                    
+	Retrieval          : on                                      
+	LLM behaviour      : offline parser                          
+	Listener feedback  : no songs excluded                       
+
+
+Test Case 70
+	Request size       : normal length                           
+	Request intent     : music request                           
+	Mood wording       : word not in catalog, mapped by glossary 
+	Genre wording      : none                                    
+	Activity wording   : none                                    
+	Energy wording     : none                                    
+	Length wording     : minutes in range                        
+	Vocals wording     : wants instrumental                      	(follows [if Duration])
+	Arc wording        : none                                    
+	Retrieval          : on                                      
+	LLM behaviour      : offline parser                          
+	Listener feedback  : no songs excluded                       
+
+
+Test Case 71
+	Request size       : normal length                           
+	Request intent     : music request                           
+	Mood wording       : word not in catalog, mapped by glossary 
+	Genre wording      : none                                    
+	Activity wording   : one activity                            
+	Energy wording     : none                                    
+	Length wording     : none                                    
+	Vocals wording     : none                                    
+	Arc wording        : none                                    
+	Retrieval          : on                                      
+	LLM behaviour      : offline parser                          
+	Listener feedback  : no songs excluded                       
+
+
+Test Case 72
+	Request size       : normal length                           
+	Request intent     : music request                           
+	Mood wording       : word not in catalog, mapped by glossary 
+	Genre wording      : none                                    
+	Activity wording   : one activity                            
+	Energy wording     : none                                    
+	Length wording     : minutes in range                        
+	Vocals wording     : none                                    
+	Arc wording        : none                                    
+	Retrieval          : on                                      
+	LLM behaviour      : offline parser                          
+	Listener feedback  : no songs excluded                       
+
+
+Test Case 73
+	Request size       : normal length                           
+	Request intent     : music request                           
+	Mood wording       : word not in catalog, mapped by glossary 
+	Genre wording      : none                                    
+	Activity wording   : one activity                            
+	Energy wording     : none                                    
+	Length wording     : minutes in range                        
+	Vocals wording     : wants instrumental                      	(follows [if Duration])
+	Arc wording        : none                                    
+	Retrieval          : on                                      
+	LLM behaviour      : offline parser                          
+	Listener feedback  : no songs excluded                       
+
+
+Test Case 74
+	Request size       : normal length                           
+	Request intent     : music request                           
+	Mood wording       : word not in catalog, mapped by glossary 
+	Genre wording      : catalog genre word                      
+	Activity wording   : none                                    
+	Energy wording     : none                                    
+	Length wording     : none                                    
+	Vocals wording     : none                                    
+	Arc wording        : none                                    
+	Retrieval          : on                                      
+	LLM behaviour      : offline parser                          
+	Listener feedback  : no songs excluded                       
+
+
+Test Case 75
+	Request size       : normal length                           
+	Request intent     : music request                           
+	Mood wording       : word not in catalog, mapped by glossary 
+	Genre wording      : catalog genre word                      
+	Activity wording   : none                                    
+	Energy wording     : none                                    
+	Length wording     : minutes in range                        
+	Vocals wording     : none                                    
+	Arc wording        : none                                    
+	Retrieval          : on                                      
+	LLM behaviour      : offline parser                          
+	Listener feedback  : no songs excluded                       
+
+
+Test Case 76
+	Request size       : normal length                           
+	Request intent     : music request                           
+	Mood wording       : word not in catalog, mapped by glossary 
+	Genre wording      : catalog genre word                      
+	Activity wording   : none                                    
+	Energy wording     : none                                    
+	Length wording     : minutes in range                        
+	Vocals wording     : wants instrumental                      	(follows [if Duration])
+	Arc wording        : none                                    
+	Retrieval          : on                                      
+	LLM behaviour      : offline parser                          
+	Listener feedback  : no songs excluded                       
+
+
+Test Case 77
+	Request size       : normal length                           
+	Request intent     : music request                           
+	Mood wording       : word not in catalog, mapped by glossary 
+	Genre wording      : catalog genre word                      
+	Activity wording   : one activity                            
+	Energy wording     : none                                    
+	Length wording     : none                                    
+	Vocals wording     : none                                    
+	Arc wording        : none                                    
+	Retrieval          : on                                      
+	LLM behaviour      : offline parser                          
+	Listener feedback  : no songs excluded                       
+
+
+Test Case 78
+	Request size       : normal length                           
+	Request intent     : music request                           
+	Mood wording       : word not in catalog, mapped by glossary 
+	Genre wording      : catalog genre word                      
+	Activity wording   : one activity                            
+	Energy wording     : none                                    
+	Length wording     : minutes in range                        
+	Vocals wording     : none                                    
+	Arc wording        : none                                    
+	Retrieval          : on                                      
+	LLM behaviour      : offline parser                          
+	Listener feedback  : no songs excluded                       
+
+
+Test Case 79
+	Request size       : normal length                           
+	Request intent     : music request                           
+	Mood wording       : word not in catalog, mapped by glossary 
+	Genre wording      : catalog genre word                      
+	Activity wording   : one activity                            
+	Energy wording     : none                                    
+	Length wording     : minutes in range                        
+	Vocals wording     : wants instrumental                      	(follows [if Duration])
+	Arc wording        : none                                    
+	Retrieval          : on                                      
+	LLM behaviour      : offline parser                          
+	Listener feedback  : no songs excluded                       
+
+

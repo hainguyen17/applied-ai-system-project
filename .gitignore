@@ -20,3 +20,6 @@ venv/
 # Runtime logs (curated examples in logs/sample_traces/ are committed)
 logs/*
 !logs/sample_traces/
+
+# Local tools (TSL compiler binary)
+.tools/

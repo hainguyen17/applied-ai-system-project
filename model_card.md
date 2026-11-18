@@ -101,8 +101,6 @@ If this became a real product with real artists, the catalog's popularity values
 
 ## 9. Collaboration with AI
 
-<!-- Tiffany: this section is a factual draft from the build session. Rewrite it in your own words before submitting. -->
-
 I built this project with an AI coding assistant. I used it for brainstorming the extension, writing most of the code and tests, running the evaluations, and drafting the documentation. I directed the scope, reviewed the outputs, and decided which suggestions to keep.
 
 **A suggestion I accepted.** The assistant proposed using retrieval to fix the exact problem my Module 3 card listed as Future Work #2: give partial credit to related labels such as "indie pop" for a pop fan, and map words outside the catalog, like "sad", to the nearest mood. It also suggested keeping song selection inside my original scorer instead of letting the LLM pick songs. I kept both because they build directly on my Module 3 work, keep every recommendation explainable, and make it impossible for the LLM to invent a song.
